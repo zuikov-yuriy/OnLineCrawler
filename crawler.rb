@@ -1,76 +1,92 @@
-require 'nokogiri'  
+require 'nokogiri'
 require 'net/http'
 require 'uri'
 
+
 class Crawler
 
-  attr_accessor :link, :hop, :href_array, :href, :i, :lvl, :doc
+  attr_reader :all_link, :array_link
 
-  def initialize(link, hop)
-     @link = link
-     @hop = hop
-     @href_array = []
-     @href =[]
-     @i = 0
-     @lvl = true
-     @url = []
+  def initialize()
+    @all_link = []          #Ссылки в одном масиве
+    @array_link = []        #Ссылки разбиты на масивы
   end
 
-  def page
-	uri = URI(@link)
-	Net::HTTP.get_response(uri)
+  def page(url)
+    uri = URI(url)
+    Net::HTTP.get_response(uri)
   end
 
 
- def write
-      
-      @url << @href
- end
+
+  def parser(link, hop)
+
+    if hop != 0
+
+      href_array = []
+
+      link.each do |url|
+
+        unless url.match(/^http/)
+          url = "http://" +  url
+        end
+
+        unless url.match(/^#/)
+
+        end
+
+        doc = Nokogiri::HTML(self.page(url).body)
+        doc.search('//a').each do |a|
+
+          href = a["href"];
+
+        begin
+
+          if href.match(/^[A-z0-9]/) && !href.match(/^http/)
+            href = "http://" + URI(url).host + "/" + href
+          end
+
+          if href.match(/^\//)
+            href = "http://" + URI(url).host + href
+          end
+
+          if !href.match(/^\//) && !href.match(/^[A-z0-9]/)
+            href = nil
+          end
+
+          if href.include?("mailto:")
+            href = nil
+          end
+
+        rescue
+        end
 
 
-  def show
-   if @i == @hop
-      @url
-   else
-     if @link != nil
-              uri = URI(@link);
-	      doc = Nokogiri::HTML(self.page.body)
-	      doc.search('//a').each do |a| 
-               href = a["href"];
-                   if (href) &&  (!href.match(/#ja-/))
-			      if  (href) && (!href.match(/^http?:/))  
-				  @href_array << "http://" + uri.host + String(href);
-		                else
-		                  @href_array << href;
-			      end
-                   end
-	      end
-     end
 
-     if @lvl == true
-                @href = @href_array
-                self.write
-		@href_array = []
-		self.array
+          unless @all_link.include?(href)
+            if href != nil
+              @all_link << href
+              href_array << href
+            end
+          end
+
+        end
+
       end
-    end 
+
+      @array_link << href_array
+      hop -= 1
+      parser(href_array, hop)
+
+    end
+
+
+
 
   end
 
 
 
- def array
-      @href.each do |l|
-	 @link = l
-         @lvl = false
-         self.show
-      end
-         @link = nil
-         @lvl = true
-         @i += 1
-         self.show
- end
 
 
 end
-
