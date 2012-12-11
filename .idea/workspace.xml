@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec813758-8283-488e-9cd6-f6959a84c499" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application.rb" afterPath="$PROJECT_DIR$/application.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.ru" afterPath="$PROJECT_DIR$/config.ru" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crawler.rb" afterPath="$PROJECT_DIR$/crawler.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/link" afterPath="$PROJECT_DIR$/link" />
     </list>
     <ignored path="crawlersite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,7 +29,7 @@
       <file leaf-file-name="config.ru" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.ru">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="26" selection-start="45" selection-end="45" vertical-scroll-proportion="0.10948905">
+            <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.03649635">
               <folding />
             </state>
           </provider>
@@ -41,7 +38,7 @@
       <file leaf-file-name="application.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="9" selection-start="461" selection-end="468" vertical-scroll-proportion="0.0">
+            <state line="14" column="10" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -59,7 +56,7 @@
       <file leaf-file-name="application_spec.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spec/application_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="13" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0">
+            <state line="17" column="7" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -83,9 +80,9 @@
         <option value="$PROJECT_DIR$/link" />
         <option value="$PROJECT_DIR$/crawler.rb" />
         <option value="$PROJECT_DIR$/spec/crawler_spec.rb" />
+        <option value="$PROJECT_DIR$/spec/application_spec.rb" />
         <option value="$PROJECT_DIR$/config.ru" />
         <option value="$PROJECT_DIR$/application.rb" />
-        <option value="$PROJECT_DIR$/spec/application_spec.rb" />
       </list>
     </option>
   </component>
@@ -441,9 +438,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/spec/application_spec.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="7" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="9" selection-start="461" selection-end="468" vertical-scroll-proportion="0.0">
+        <state line="14" column="10" selection-start="417" selection-end="417" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -455,16 +459,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spec/application_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="13" selection-start="338" selection-end="338" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.ru">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="26" selection-start="45" selection-end="45" vertical-scroll-proportion="0.10948905">
+        <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.03649635">
           <folding />
         </state>
       </provider>

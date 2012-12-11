@@ -1,3 +1,5 @@
+require './crawler'
+
 class Application
 
   def call(env)
@@ -16,11 +18,11 @@ class Application
 
     if request.post?
       crawler = Crawler.new
-      #crawler.parser([request.params["url"]], Integer(request.params["hop"]))
+      crawler.parser([request.params["url"]], Integer(request.params["hop"]))
       response.write form
-      #response.write '<div>Count Hop:'  + request.params["hop"] + '</div>'
-      #response.write '<div>Count Links:'  + crawler.count.to_s + '</div>'
-      #response.write crawler.all_link.map { |url| "<a href='#{url.to_s}' target='blank'>#{url}</a>" }.join('<br>')
+      response.write '<div>Count Hop:'  + request.params["hop"] + '</div>'
+      response.write '<div>Count Links:'  + crawler.count.to_s + '</div>'
+      response.write crawler.all_link.map { |url| "<a href='#{url.to_s}' target='blank'>#{url}</a>" }.join('<br>')
       response.write '<br><br><br>'
       response.write crawler.array_link
     else
