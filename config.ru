@@ -1,4 +1,6 @@
 require './application'
+require './crawler'
+
 
 use Rack::Reloader
 use Rack::CommonLogger
