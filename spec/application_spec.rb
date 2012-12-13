@@ -1,21 +1,30 @@
 require 'spec_helper'
-require '../crawler'
 require 'rack'
+require 'rack/mock'
+require 'rack/request'
+require 'rack/response'
 
 
 describe Application do
 
 
-
   describe "" do
+
     it "" do
 
+      env = Rack::MockRequest.env_for("/", :method => "get",)
+
       a = Application.new
-      env = Rack::MockRequest.env_for("/", :method => "POST", :input => "url=http://technica.org.ua/",:input => "hop=3")
       a.call(env)
-      a.request.params["hop"].should.equal "3"
+      a.req
 
     end
+
+
   end
+
+
+
+
 
 end

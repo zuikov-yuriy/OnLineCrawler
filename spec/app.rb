@@ -1,18 +1,20 @@
-require './crawler'
+#require './crawler'
 File.expand_path('./crawler', File.dirname(__FILE__))
 
 class Application
 
-   attr_reader :req
+
+
   def call(env)
-    @env = env
-    @req = Rack::Request.new(env)
+    request(Rack::Request.new(env))
     response(Rack::Response.new)
   end
 
-  #def met
-  #  @env["request_method"]
-  #end
+
+  def request(env)
+    @env = env
+  end
+
 
   def response(resp)
     resp['Content-Type'] = 'text/html'
@@ -29,10 +31,10 @@ class Application
 
 
   def link
-    if @req.request_method["POST"]
-      crawler([@req.params["url"]], Integer(@req.params["hop"]))
-    elsif @req.request_method["GET"]
-      @req.request_method + '--------------' +@req.inspect
+    if @env.post?
+      crawler([@env.params["url"]], Integer(@env.params["hop"]))
+    elsif @env.get?
+      l = 'get'
     end
   end
 
